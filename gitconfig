@@ -1,0 +1,82 @@
+[user]
+	name = elliot
+	email = elliot@muchenglin.com
+[alias]
+	undo = reset --soft head^
+	cancel = reset --hard head^
+	st = status
+	ck = checkout
+	df = diff
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an> %Creset%Cgreen(%ar)' --abbrev-commit --
+	showlog = log --pretty='%C(yellow)%h%Creset%C(auto)%d%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%ar)'
+	br = branch
+	cm = commit -a
+    cma = commit -a --amend --no-edit
+	cmfix = commit -a --fixup=HEAD
+	cmsq = commit -a --squash=HEAD
+	pf = push --force-with-lease
+	pull = pull --autostash
+	delbr = br -D
+[log]
+	date = "format:%Y-%m-%d %H:%M:%S"
+[branch]
+	sort = -authordate
+[push]
+	default = upstream
+	autoSetupRemote = true
+[credential "https://gitee.com"]
+	provider = generic
+[url "git@gitlab.xinhulu.com:"]
+	insteadOf = https://gitlab.xinhulu.com
+[url "git@gitlab.xinhulu.com:"]
+	insteadOf = http://gitlab.xinhulu.com
+[core]
+    autocrlf = input
+    pager = delta
+    quotepath = false
+	excludesfile = E:/Git/.gitignore
+	editor = code --wait --reuse-window
+	mergeoptions = --no-edit
+	# commentChar = auto
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    #side-by-side = true
+	line-numbers = true
+[commit]
+	gpgsign = false
+	verbose = true
+	# template = C:/Users/Administrator/.gitcmtpl.txt
+[diff]
+	# tool = cursor
+	tool = code
+	# tool = meld
+    colorMoved = default
+	algorithm = histogram
+[difftool]
+	prompt = false
+[difftool "cursor"]
+	cmd = cursor --wait --diff $LOCAL $REMOTE
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[difftool "meld"]
+	cmd = meld $LOCAL $REMOTE
+[i18n]
+	commitencoding = utf-8
+    logoutputencoding = utf-8
+[merge]
+    conflictstyle = diff3
+    tool = vscode
+    # tool = meld
+[mergetool "vimdiff"]
+    layout = "LOCAL,REMOTE/MERGED"
+[mergetool]
+	keepBackup = false
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+[help]
+	autocorrect = 13
+[gitbutler]
+	aiOpenAIKeyOption = butlerAPI
